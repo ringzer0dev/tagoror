@@ -52,4 +52,4 @@ whichcraft==0.6.1
 whitenoise==5.2.0
 zope.event==4.5.0
 zope.interface==5.1.2
-djangorestframework
+djangorestframework==3.12.2
