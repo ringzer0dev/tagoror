@@ -62,17 +62,17 @@ class PostListView(LoginRequiredMixin, ListView):
 
 
 class UserPostListView(LoginRequiredMixin, ListView):
-    model = Post
-    template_name = 'blog/user_posts.html'
+    model               = Post
+    template_name       = 'blog/user_posts.html'
     context_object_name = 'posts'
-    paginate_by = PAGINATION_COUNT
+    paginate_by         = PAGINATION_COUNT
 
     def visible_user(self):
         return get_object_or_404(User, username=self.kwargs.get('username'))
 
     def get_context_data(self, **kwargs):
-        visible_user = self.visible_user()
-        logged_user = self.request.user
+        visible_user    = self.visible_user()
+        logged_user     = self.request.user
         print(logged_user.username == '', file=sys.stderr)
 
         if logged_user.username == '' or logged_user is None:
